@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute','smart-table'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
@@ -9,6 +9,10 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', [function() {
+.controller('View2Ctrl', [ '$scope', '$http',function($scope, $http) {
+      $http.get("/DocMon/app/test_data").success(function (data, status, headers, config) {
+            $scope.rowCollection = data;
+          }
+      );
 
 }]);

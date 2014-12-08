@@ -9,24 +9,21 @@ angular.module('myApp.view1', ['ngRoute', 'ui.grid'])
         });
     }])
 
-    .controller('View1Ctrl', ['$scope', function ($scope) {
-        $scope.myData = [
-            {
-                "firstName": "Cox",
-                "lastName": "Carney",
-                "company": "Enormo",
-                "employed": true
-            },
-            {
-                "firstName": "Lorraine",
-                "lastName": "Wise",
-                "company": "Comveyer",
-                "employed": false
-            },
-            {
-                "firstName": "Nancy",
-                "lastName": "Waters",
-                "company": "Fuelton",
-                "employed": false
-            }];
+    .controller('View1Ctrl', ['$scope', '$http', function ($scope, $http) {
+
+        $scope.gridOptions = {
+            enableSorting: true
+
+        };
+        $scope.name = "najib";
+
+        $http.get("/DocMon/app/test_data").success(function (data, status, headers, config) {
+                $scope.gridOptions.data = data;
+            }
+        );
+
+        $scope.click = function() {
+            $scope.gridOptions.data.push({firstName : $scope.name});
+        }
+
     }]);
