@@ -10,9 +10,13 @@ angular.module('myApp.view2', ['ngRoute','smart-table'])
 }])
 
 .controller('View2Ctrl', [ '$scope', '$http',function($scope, $http) {
+      $scope.itemsByPage=5;
+
       $http.get("/DocMon/app/test_data").success(function (data, status, headers, config) {
             $scope.rowCollection   = data;
           }
       );
 
-}]);
+      $scope.displayed = [].concat($scope.rowCollection);
+
+    }]);
