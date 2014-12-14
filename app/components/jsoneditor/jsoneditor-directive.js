@@ -1,5 +1,8 @@
 'use strict';
 
-
-
-angular.module('My.jsoneditor.jsoneditor-directive',[])
+angular.module('jsoneditor-directive', [])
+    .directive('jsonEditor', [ function(version) {
+        return function(scope, elm, attrs) {
+            elm.text(version);
+        };
+    }]);

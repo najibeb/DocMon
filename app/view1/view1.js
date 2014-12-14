@@ -29,7 +29,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.grid'])
     }]).directive("myCust", function () {
 
         return {
-            template: 'najib director'
+            template: 'nkjnibh'
         };
 
     }
