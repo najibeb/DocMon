@@ -22,8 +22,16 @@ angular.module('myApp.view1', ['ngRoute', 'ui.grid'])
             }
         );
 
-        $scope.click = function() {
-            $scope.gridOptions.data.push({firstName : $scope.name});
+        $scope.click = function () {
+            $scope.gridOptions.data.push({firstName: $scope.name});
         }
 
-    }]);
+    }]).directive("myCust", function () {
+
+        return {
+            template: 'najib director'
+        };
+
+    }
+)
+;
